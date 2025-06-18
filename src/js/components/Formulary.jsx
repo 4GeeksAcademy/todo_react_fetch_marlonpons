@@ -20,7 +20,7 @@ export const Formulary = () =>{
 
     /*Para cargar el usuario de la API con todas las tareas que tiene */
     const getUser = async () =>{
-        const result = await fetch("https://playground.4geeks.com/todo/users/marlonpons");
+        const result = await fetch("https://playground.4geeks.com/todo/users/marlonpons");//URl para recibir a los datos del usuario en la API
         const data = await result.json();
         console.log(data);//para ver en consola todos los campos del objeto devuelto
         if(Array.isArray(data.todos)){//verifica que todos es un array de objetos OJO, faltaria poner manejo de errores ppara el caso que no lo sea 
@@ -35,7 +35,7 @@ export const Formulary = () =>{
             is_done: false
         }
 
-        await fetch("https://playground.4geeks.com/todo/todos/marlonpons",{
+        await fetch("https://playground.4geeks.com/todo/todos/marlonpons",{ //URl para acceder a la todos del usuario marlonpons
             method: "POST",
             body: JSON.stringify(newToDo),
             headers: {"Content-type": "application/json"}
